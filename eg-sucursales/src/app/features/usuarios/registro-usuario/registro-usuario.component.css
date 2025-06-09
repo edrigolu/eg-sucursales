@@ -1,0 +1,19 @@
+.registro-container {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.boton-centrado {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

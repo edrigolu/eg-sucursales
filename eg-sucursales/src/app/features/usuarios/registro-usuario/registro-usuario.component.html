@@ -1,0 +1,67 @@
+<div class="registro-container">
+  <form [formGroup]="registroForm" (ngSubmit)="onSubmit()" nz-form>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" nzFor="nombre" nzRequired
+        >Nombre completo</nz-form-label
+      >
+      <nz-form-control [nzSm]="14">
+        <input
+          nz-input
+          formControlName="nombre"
+          id="nombre"
+          placeholder="Nombre completo"
+        />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" nzFor="correo" nzRequired>Correo</nz-form-label>
+      <nz-form-control [nzSm]="14">
+        <input
+          nz-input
+          formControlName="correo"
+          id="correo"
+          placeholder="Correo electrónico"
+        />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" nzFor="clave" nzRequired>Clave</nz-form-label>
+      <nz-form-control [nzSm]="14">
+        <input
+          nz-input
+          type="password"
+          formControlName="clave"
+          id="clave"
+          placeholder="Contraseña"
+        />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" nzFor="rol" nzRequired>Rol</nz-form-label>
+      <nz-form-control [nzSm]="14">
+        <nz-select
+          formControlName="rol"
+          id="rol"
+          placeholder="Seleccione un rol"
+        >
+          <nz-option
+            *ngFor="let r of roles"
+            [nzValue]="r.id"
+            [nzLabel]="r.nombre"
+          ></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-control [nzSm]="14" [nzOffset]="6">
+        <button nz-button nzType="primary" [disabled]="registroForm.invalid">
+          Registrar
+        </button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>

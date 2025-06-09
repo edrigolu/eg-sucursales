@@ -1,0 +1,24 @@
+<div class="login-container">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" nz-form>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" nzFor="correo" nzRequired>Correo</nz-form-label>
+      <nz-form-control [nzSm]="14">
+        <input nz-input formControlName="correo" id="correo" placeholder="Correo" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" nzFor="clave" nzRequired>Clave</nz-form-label>
+      <nz-form-control [nzSm]="14">
+        <input nz-input type="password" formControlName="clave" id="clave" placeholder="Clave" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-control [nzSm]="14" [nzOffset]="6">
+        <button nz-button nzType="primary" [disabled]="loginForm.invalid">Iniciar sesión</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>
+
