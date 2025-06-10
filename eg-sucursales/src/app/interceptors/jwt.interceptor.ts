@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import {
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpInterceptor,
+} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 
@@ -7,16 +12,19 @@ import { AuthService } from '../services/auth.service';
 export class JwtInterceptor implements HttpInterceptor {
   constructor(private authService: AuthService) {}
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = this.authService.getToken();
+ intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  const token = this.authService.getToken(); // Llamada a la función, no solo referencia
 
-    if (token) {
-      const cloned = req.clone({
-        headers: req.headers.set('Authorization', `Bearer ${token}`)
-      });
-      return next.handle(cloned);
-    }
+  console.log('Token interceptado:', token);  // Verifica que el token no sea null o vacío
 
-    return next.handle(req);
+  if (token) {
+    const cloned = req.clone({
+      headers: req.headers.set('Authorization', `Bearer ${token}`)
+    });
+    return next.handle(cloned);
   }
+
+  return next.handle(req);
+}
+
 }

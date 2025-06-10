@@ -7,7 +7,7 @@ import { Observable, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'https://localhost:44374/api/Auth'; // Ajustar si es necesario
+  private apiUrl = 'https://localhost:44374/api/auth'; // Ajustar si es necesario
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -25,6 +25,8 @@ export class AuthService {
   }
 
   getToken(): string | null {
-    return localStorage.getItem('token');
+    const token = localStorage.getItem('token');
+    console.log('Token recuperado:', token); // Verifica el valor del token
+    return token;
   }
 }
