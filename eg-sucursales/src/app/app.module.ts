@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './features/auth/login/login.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { JwtInterceptor } from './core/auth/jwt.interceptor';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -17,15 +21,17 @@ import { NzSelectModule } from 'ng-zorro-antd/select'; // <-- importante
 import { NzMessageModule } from 'ng-zorro-antd/message';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,    
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     NzFormModule,

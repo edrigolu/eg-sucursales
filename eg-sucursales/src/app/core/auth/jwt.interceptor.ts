@@ -6,7 +6,7 @@ import {
   HttpEvent,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AuthService } from './auth.service';
+import { AuthService } from '../../services/auth.service';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
@@ -16,7 +16,7 @@ export class JwtInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const token = this.authService.token;
+    const token = this.authService.getToken;
 
     if (token) {
       req = req.clone({

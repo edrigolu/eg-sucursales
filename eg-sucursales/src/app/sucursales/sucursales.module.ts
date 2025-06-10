@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { SucursalesRoutingModule } from './sucursales-routing.module';
 import { SucursalesComponent } from './sucursales.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NzTableModule } from 'ng-zorro-antd/table';
 
 
 @NgModule({
@@ -11,7 +13,10 @@ import { SucursalesComponent } from './sucursales.component';
   ],
   imports: [
     CommonModule,
-    SucursalesRoutingModule
+    SucursalesRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NzTableModule
   ]
 })
 export class SucursalesModule { }

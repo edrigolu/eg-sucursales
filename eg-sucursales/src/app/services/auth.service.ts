@@ -4,21 +4,15 @@ import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-
-  private apiUrl = 'https://localhost:5001/api/Auth'; // Ajusta si es necesario
+  private apiUrl = 'https://localhost:44374/api/Auth'; // Ajustar si es necesario
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  login(credentials: { correo: string; clave: string }): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, credentials).pipe(
-      tap((response: any) => {
-        localStorage.setItem('token', response.token);
-      })
-    );
+  login(loginData: { correo: string; clave: string }): Observable<any> {
+    return this.http.post(`${this.apiUrl}/login`, loginData);
   }
 
   logout(): void {
@@ -33,5 +27,4 @@ export class AuthService {
   getToken(): string | null {
     return localStorage.getItem('token');
   }
-
 }
